@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: {
     index: "./src/index.js",
+    background: "./src/background.js",
     content: "./src/inject/content.js",
   },
   output: {
@@ -37,8 +38,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "background.html",
-      template: "./index.html",
-      chunks: ["content"],
+      template: "./background.html",
+      chunks: ["background"],
     }),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
